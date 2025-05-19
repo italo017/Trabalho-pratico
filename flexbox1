@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Layout Simples</title>
+  <style>
+    body {
+      background: #f2f2f2;
+      padding: 40px;
+    }
+    
+    .container {
+      display: grid;
+      
+      width: 100%;
+    }
+    
+    .header { background: #28a745; height: 50px; }
+    .footer { background: #ff5722; height: 30px; }
+    
+    .linha-superior, .linha-inferior {
+      background: #007bff;
+      padding: 10px;
+      display: grid;
+      gap: 10px;
+    }
+    
+    .linha-superior { grid-template-columns: 1fr 1fr 1fr; height: 200px; }
+    .linha-inferior { grid-template-columns: repeat(6, 1fr); height: 150px; }
+    
+    .bloco-rosa { background: #ff4da6; }
+    .bloco-roxo { background: #8000ff; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header"></div>
+    
+    <div class="linha-superior">
+      <div class="bloco-rosa"></div>
+      <div class="bloco-rosa"></div>
+      <div class="bloco-rosa"></div>
+    </div>
+    
+    <div class="linha-inferior">
+      <div class="bloco-roxo"></div>
+      <div class="bloco-roxo"></div>
+      <div class="bloco-roxo"></div>
+      <div class="bloco-roxo"></div>
+      <div class="bloco-roxo"></div>
+      <div class="bloco-roxo"></div>
+    </div>
+    
+    <div class="footer"></div>
+  </div>
+</body>
+</html>

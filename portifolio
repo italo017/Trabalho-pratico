@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfólio Responsivo</title>
+  <style>
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      color: #333;
+      line-height: 1.6;
+      background-color: #f5f5f5;
+    }
+
+    
+    .main-header {
+      background: #333;
+      color: white;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+    }
+
+    .menu {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .menu li a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .menu li a:hover {
+      color: #ddd;
+    }
+
+   
+    .controls-header {
+      background: #444;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .device-controls {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .device-controls h3 {
+      color: white;
+      margin-right: 1rem;
+      font-size: 1rem;
+    }
+
+    .device-btn {
+      padding: 0.5rem 1rem;
+      border: none;
+      background: #666;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .device-btn:hover {
+      background: #777;
+    }
+
+    .device-btn.active {
+      background: #4CAF50;
+    }
+
+    .layout-controls {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .layout-controls p {
+      color: white;
+      margin-right: 1rem;
+      font-size: 1rem;
+    }
+
+    .layout-btn {
+      padding: 0.5rem 1rem;
+      border: none;
+      background: #666;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .layout-btn:hover {
+      background: #777;
+    }
+
+    .layout-btn.active {
+      background: #2196F3;
+    }
+
+    
+    .portfolio-container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+
+    
+    .mobile-view .portfolio-container {
+      max-width: 375px;
+      border: 10px solid #333;
+      border-radius: 30px;
+      padding: 20px;
+      margin: 20px auto;
+      position: relative;
+    }
+
+    .mobile-view .portfolio-container::before {
+      content: '';
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 10px;
+      background: #333;
+      border-radius: 0 0 10px 10px;
+    }
+
+    .tablet-view .portfolio-container {
+      max-width: 768px;
+      border: 15px solid #333;
+      border-radius: 20px;
+      padding: 30px;
+      margin: 20px auto;
+    }
+
+    .desktop-view .portfolio-container {
+      max-width: 1200px;
+      border: none;
+      padding: 20px;
+      margin: 20px auto;
+    }
+
+    
+    .sobre-conteudo {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 3rem;
+    }
+
+    .sobre img {
+      width: 200px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    .sobre h2 {
+      margin-bottom: 1rem;
+      color: #333;
+    }
+
+    .sobre p {
+      max-width: 500px;
+    }
+
+   
+    .projetos h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    
+    .galeria {
+      margin-top: 2rem;
+      min-height: 200px;
+    }
+
+    
+    .grid-layout {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+    }
+
+   
+    .flex-layout {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+    }
+
+    
+    .item {
+      background: #eee;
+      padding: 2rem;
+      text-align: center;
+      border-radius: 8px;
+      flex: 1 1 200px;
+      min-width: 200px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+  
+    footer {
+      background: #333;
+      color: #fff;
+      text-align: center;
+      padding: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    
+    @media (max-width: 768px) {
+      .main-header, .controls-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      
+      .menu {
+        margin-top: 1rem;
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: center;
+      }
+      
+      .device-controls, .layout-controls {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .sobre-conteudo {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  
+  <header class="main-header">
+    <h1 class="logo">Meu Portfólio</h1>
+    <ul class="menu">
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#projetos">Projetos</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+  </header>
+
+ 
+  <header class="controls-header">
+    <div class="device-controls">
+      <h3>Visualizar como:</h3>
+      <button class="device-btn active" onclick="changeDevice('mobile')">Celular</button>
+      <button class="device-btn" onclick="changeDevice('tablet')">Tablet</button>
+      <button class="device-btn" onclick="changeDevice('desktop')">Desktop</button>
+    </div>
+    
+  </header>
+
+  
+  <div id="device-view" class="mobile-view">
+    <div class="portfolio-container">
+      <section id="sobre" class="sobre">
+        <div class="sobre-conteudo">
+          <img src="https://pbs.twimg.com/profile_images/1345980086797946883/6lFdDFD9_400x400.jpg" alt="Minha foto" />
+          <div>
+            <h2>Sobre Mim</h2>
+            <p>Sou desenvolvedor web e gosto de criar sites modernos e responsivos. Confira meus projetos abaixo.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="projetos" class="projetos">
+        <h2>Projetos Recentes</h2>
+        <div id="galeria" class="galeria grid-layout">
+          <div class="item">
+            <h3>Projeto 1</h3>
+            <p>Descrição do projeto</p>
+          </div>
+          <div class="item">
+            <h3>Projeto 2</h3>
+            <p>Descrição do projeto</p>
+          </div>
+          <div class="item">
+            <h3>Projeto 3</h3>
+            <p>Descrição do projeto</p>
+          </div>
+          <div class="item">
+            <h3>Projeto 4</h3>
+            <p>Descrição do projeto</p>
+          </div>
+          <div class="item">
+            <h3>Projeto 5</h3>
+            <p>Descrição do projeto</p>
+          </div>
+          <div class="item">
+            <h3>Projeto 6</h3>
+            <p>Descrição do projeto</p>
+          </div>
+        </div>
+      </section>
+
+      <footer id="contato">
+        <p> © 2025 Meu Portfólio|Todos os direitos reservados. </p>
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    
+   
+    
+    function changeDevice(device) {
+      const container = document.getElementById("device-view");
+      const buttons = document.querySelectorAll(".device-btn");
+      
+     
+      container.classList.remove("mobile-view", "tablet-view", "desktop-view");
+      
+     
+      container.classList.add(device + "-view");
+      
+      
+      buttons.forEach(btn => {
+        btn.classList.remove("active");
+        if (btn.textContent.toLowerCase().includes(device)) {
+          btn.classList.add("active");
+        }
+      });
+    }
+
+   
+  </script>
+</body>
+</html>

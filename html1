@@ -1,0 +1,43 @@
+ <!DOCTYPE html>
+<html>
+<head>
+  <title>Grade de Cores</title>
+  <style>
+    body {
+      background: #eaeaea;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    
+    .grade {
+      display: grid;
+      grid-template: 150px 150px / 150px 150px;
+      gap: 20px;
+    }
+    
+    .caixa {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      border-radius: 10px;
+    }
+    
+    .red { background: red; color: white; }
+    .blue { background: blue; color: white; }
+    .black { background: black; color: white; }
+    .yellow { background: purple; color: white; }
+  </style>
+</head>
+<body>
+  <div class="grade">
+    <div class="caixa red">1</div>
+    <div class="caixa blue">2</div>
+    <div class="caixa black">3</div>
+    <div class="caixa yellow">4</div>
+  </div>
+</body>
+</html>
